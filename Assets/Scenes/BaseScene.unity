@@ -214,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 436.95624, y: -24.752304}
+  m_Offset: {x: 964.8085, y: -24.980457}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -225,7 +225,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 874.9125, y: 50.50461}
+  m_Size: {x: 3028.969, y: 50.0483}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -557,11 +557,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbbf7a289f34f0cbb2e35347ca18fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabListBarriers:
+  _player: {fileID: 1571734153}
+  _listOfBarriers:
   - {fileID: 9153840442116465688, guid: c04143d18cba8614db71cc94f55bf6d9, type: 3}
-  PrefabListLoots:
+  _listOfLoots:
   - {fileID: 5488433277072466758, guid: f3c78934b32b42d4894f4a2ef4650a66, type: 3}
-  _target: {fileID: 1571734157}
+  _spawnDistanceMin: 10
+  _spawnDistanceMax: 20
+  _spawnHeightMin: 1
+  _spawnHeightMax: 5
+  _minSpawnCount: 1
+  _maxSpawnCount: 3
+  _minSpawnInterval: 0
+  _maxSpawnInterval: 2
 --- !u!4 &863262016
 Transform:
   m_ObjectHideFlags: 0
@@ -5735,7 +5743,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 436.93198, y: -24.940908}
+  m_Offset: {x: 966.2377, y: -24.940908}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5746,5 +5754,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 874.86395, y: 49.964878}
+  m_Size: {x: 3031.3699, y: 49.964878}
   m_EdgeRadius: 0
