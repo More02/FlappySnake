@@ -12,6 +12,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
+        MoveCamera();
+    }
+
+    private void MoveCamera()
+    {
         var transformVar = transform;
         var position = transformVar.position;
         var newPosition = new Vector3(_target.position.x + _offset.x, position.y, position.z);
