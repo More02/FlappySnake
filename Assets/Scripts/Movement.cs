@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float _jumpForce = 5f;
-    [SerializeField] public float _forwardSpeed = 2f;
+    [SerializeField] private float _jumpForce = 1.2f;
+    [SerializeField] public float _forwardSpeed = 5f;
+    private float _tempJumpForce;
     private Rigidbody2D _rigidbody;
     private bool _isJumping;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _tempJumpForce = _jumpForce;
     }
 
     private void Update()
@@ -22,10 +24,13 @@ public class Movement : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             _isJumping = false;
+            _jumpForce = _tempJumpForce;
         }
 
         if (_isJumping)
         {
+           // _jumpForce *= 5;
+            Debug.Log(_jumpForce);
             Jump();
         }
 
