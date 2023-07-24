@@ -16,8 +16,6 @@ namespace BarriersAndLoot
         [SerializeField] private List<GameObject> _listOfLoots;
         [SerializeField] private float _spawnDistanceMin = 10f;
         [SerializeField] private float _spawnDistanceMax = 20f;
-        [SerializeField] private float _spawnHeightMin = 1f;
-        [SerializeField] private float _spawnHeightMax = 5f;
         [SerializeField] private int _minSpawnCount = 1;
         [SerializeField] private int _maxSpawnCount = 3;
         [SerializeField] private float _minSpawnInterval;
@@ -62,7 +60,7 @@ namespace BarriersAndLoot
         {
             var spawnDistance = Random.Range(_spawnDistanceMin, _spawnDistanceMax);
             var spawnPosition = _player.transform.position +
-                                new Vector3(spawnDistance, Random.Range(_spawnHeightMin, _spawnHeightMax), 0);
+                                new Vector3(spawnDistance, Random.Range(Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height*0.1f, 0)).y, Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height*0.9f, 0)).y), 0);
             obj.transform.position = spawnPosition;
         }
 
