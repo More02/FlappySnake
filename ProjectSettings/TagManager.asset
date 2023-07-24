@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
+  - Barrier
+  - Loot
   layers:
   - Default
   - TransparentFX

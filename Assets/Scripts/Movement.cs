@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float _jumpForce = 5f;
-    [SerializeField] public float _forwardSpeed = 5f;
+    [SerializeField] private float _jumpForce = 6f;
+    [SerializeField] public float _forwardSpeed = 8f;
     private Rigidbody2D _rigidbody;
     private bool _isJumping;
     private bool _canStartProcesses;

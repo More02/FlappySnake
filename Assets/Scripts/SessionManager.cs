@@ -12,21 +12,20 @@ public class SessionManager : MonoBehaviour
     {
         Movement.OnSessionBegin += StartSession;
     }
-    private void OnCollisionEnter2D(Collision2D col)
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag($"Border"))
         {
-           // _lootCountInt = 0;
+            Debug.Log("trigger");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
-        else if (col.gameObject.layer == LayerMask.NameToLayer($"BarrierLayer"))
+        else if (col.gameObject.CompareTag($"Barrier"))
         {
-           // _lootCountInt = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
-        else if (col.gameObject.layer == LayerMask.NameToLayer($"LootLayer"))
+        else if (col.gameObject.CompareTag($"Loot"))
         {
             _lootCountInt++;
             _lootCountText.SetText(_lootCountInt.ToString());

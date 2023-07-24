@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -21,7 +20,6 @@ public class InstantiateBarriersManager : MonoBehaviour
     private void Start()
     {
         Movement.OnSessionBegin += StartCoroutineSpawnObjects;
-        // StartCoroutine(SpawnObjects());
     }
     
     private void StartCoroutineSpawnObjects()
@@ -39,6 +37,7 @@ public class InstantiateBarriersManager : MonoBehaviour
             for (var i = 0; i < barrierCount; i++)
             {
                 var barrier = Instantiate(_listOfBarriers[Random.Range(0, _listOfBarriers.Count)]);
+                barrier.SetActive(true);
                 SetObjectPosition(barrier);
                 yield return new WaitForSeconds(Random.Range(_minSpawnInterval, _maxSpawnInterval));
             }
@@ -46,6 +45,7 @@ public class InstantiateBarriersManager : MonoBehaviour
             for (var i = 0; i < lootCount; i++)
             {
                 var loot = Instantiate(_listOfLoots[Random.Range(0, _listOfLoots.Count)]);
+                loot.SetActive(true);
                 SetObjectPosition(loot);
                 yield return new WaitForSeconds(Random.Range(_minSpawnInterval, _maxSpawnInterval));
             }
@@ -58,12 +58,6 @@ public class InstantiateBarriersManager : MonoBehaviour
         var spawnPosition = _player.transform.position +
                             new Vector3(spawnDistance, Random.Range(_spawnHeightMin, _spawnHeightMax), 0);
         obj.transform.position = spawnPosition;
-        var rb = obj.GetComponent<Rigidbody2D>();
-        if (rb is null) return;
-        var direction = (_player.transform.position - obj.transform.position).normalized;
-        var randomYDirection = Random.Range(-1f, 1f);
-        var randomDirection = new Vector3(direction.x, randomYDirection, 0f).normalized;
-        rb.velocity = randomDirection * Random.Range(1f, 5f);
     }
 
     private void OnDestroy()
