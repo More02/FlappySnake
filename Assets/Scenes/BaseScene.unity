@@ -666,14 +666,12 @@ MonoBehaviour:
   - {fileID: 354129141}
   _listOfLoots:
   - {fileID: 897490711}
-  _spawnDistanceMin: 10
+  _spawnDistanceMin: 15
   _spawnDistanceMax: 20
-  _spawnHeightMin: 1
-  _spawnHeightMax: 5
   _minSpawnCount: 1
-  _maxSpawnCount: 3
+  _maxSpawnCount: 4
   _minSpawnInterval: 0
-  _maxSpawnInterval: 2
+  _maxSpawnInterval: 1.5
 --- !u!4 &863262016
 Transform:
   m_ObjectHideFlags: 0

@@ -14,12 +14,12 @@ namespace BarriersAndLoot
         [SerializeField] private GameObject _player;
         [SerializeField] private List<GameObject> _listOfBarriers;
         [SerializeField] private List<GameObject> _listOfLoots;
-        [SerializeField] private float _spawnDistanceMin = 10f;
+        [SerializeField] private float _spawnDistanceMin = 15f;
         [SerializeField] private float _spawnDistanceMax = 20f;
         [SerializeField] private int _minSpawnCount = 1;
-        [SerializeField] private int _maxSpawnCount = 3;
+        [SerializeField] private int _maxSpawnCount = 4;
         [SerializeField] private float _minSpawnInterval;
-        [SerializeField] private float _maxSpawnInterval = 2f;
+        [SerializeField] private float _maxSpawnInterval = 1.5f;
     
         private void Start()
         {
