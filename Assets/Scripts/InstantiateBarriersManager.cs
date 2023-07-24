@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class InstanceBarriers : MonoBehaviour
+public class InstantiateBarriersManager : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
     [SerializeField] private List<GameObject> _listOfBarriers;
@@ -16,8 +17,14 @@ public class InstanceBarriers : MonoBehaviour
     [SerializeField] private int _maxSpawnCount = 3;
     [SerializeField] private float _minSpawnInterval;
     [SerializeField] private float _maxSpawnInterval = 2f;
-
+    
     private void Start()
+    {
+        Movement.OnSessionBegin += StartCoroutineSpawnObjects;
+        // StartCoroutine(SpawnObjects());
+    }
+    
+    private void StartCoroutineSpawnObjects()
     {
         StartCoroutine(SpawnObjects());
     }
@@ -29,14 +36,12 @@ public class InstanceBarriers : MonoBehaviour
             var barrierCount = Random.Range(_minSpawnCount, _maxSpawnCount + 1);
             var lootCount = Random.Range(0, barrierCount);
 
-
             for (var i = 0; i < barrierCount; i++)
             {
                 var barrier = Instantiate(_listOfBarriers[Random.Range(0, _listOfBarriers.Count)]);
                 SetObjectPosition(barrier);
                 yield return new WaitForSeconds(Random.Range(_minSpawnInterval, _maxSpawnInterval));
             }
-
 
             for (var i = 0; i < lootCount; i++)
             {
@@ -59,5 +64,10 @@ public class InstanceBarriers : MonoBehaviour
         var randomYDirection = Random.Range(-1f, 1f);
         var randomDirection = new Vector3(direction.x, randomYDirection, 0f).normalized;
         rb.velocity = randomDirection * Random.Range(1f, 5f);
+    }
+
+    private void OnDestroy()
+    {
+        Movement.OnSessionBegin -= StartCoroutineSpawnObjects;
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -6,14 +7,30 @@ public class Movement : MonoBehaviour
     [SerializeField] public float _forwardSpeed = 5f;
     private Rigidbody2D _rigidbody;
     private bool _isJumping;
+    private bool _canStartProcesses;
+
+    public delegate void OnInputEvent();
+
+    public static event OnInputEvent OnSessionBegin;
+
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
     }
 
     private void Update()
     {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && (!_canStartProcesses))
+        {
+            _canStartProcesses = true;
+            _rigidbody.constraints = RigidbodyConstraints2D.None;
+            OnSessionBegin?.Invoke();
+        }
+
+        if (_canStartProcesses != true) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             _isJumping = true;
