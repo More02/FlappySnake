@@ -3,7 +3,7 @@
 FlappyBird и змейка в одном проекте, мини игра в жанре Аркада.
 
 
-[Билд](https://github.com/More02/FlappySnake/releases/tag/FlappySbake)
+[Билд](https://github.com/More02/FlappySnake/releases/tag/FlappySnake)
 
 ---
 
