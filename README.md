@@ -4,6 +4,7 @@ FlappyBird и змейка в одном проекте, мини игра в ж
 
 
 [Билд](https://github.com/More02/FlappySnake/releases/tag/FlappySnake)
+[Играть](https://more02.itch.io/fluppysnake)
 
 ---
 
