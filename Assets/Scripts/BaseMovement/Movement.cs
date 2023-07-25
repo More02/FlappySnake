@@ -29,7 +29,6 @@ namespace BaseMovement
                 _canStartProcesses = true;
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
                 OnSessionBegin?.Invoke();
-                Debug.Log("first");
             }
 
             if (_canStartProcesses != true) return;
@@ -38,7 +37,6 @@ namespace BaseMovement
             {
                 _isJumping = true;
                 Jump();
-                Debug.Log("clicked");
             }
             else if (Input.GetMouseButtonUp(0))
             {
@@ -55,7 +53,7 @@ namespace BaseMovement
 
         private void Jump()
         {
-            _rigidbody.AddForce(Vector2.up * _jumpForce);
+            _rigidbody.AddForce(Vector2.up * (_jumpForce * Time.deltaTime * 300f));
         }
 
         private void MoveForward()
