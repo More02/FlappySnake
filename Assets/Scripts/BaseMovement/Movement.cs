@@ -29,6 +29,7 @@ namespace BaseMovement
                 _canStartProcesses = true;
                 _rigidbody.constraints = RigidbodyConstraints2D.None;
                 OnSessionBegin?.Invoke();
+                Debug.Log("first");
             }
 
             if (_canStartProcesses != true) return;
@@ -37,6 +38,7 @@ namespace BaseMovement
             {
                 _isJumping = true;
                 Jump();
+                Debug.Log("clicked");
             }
             else if (Input.GetMouseButtonUp(0))
             {
