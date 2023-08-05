@@ -1,4 +1,4 @@
-# FlappySbake
+# FlappySnake
 
 FlappyBird и змейка в одном проекте, мини игра в жанре Аркада.
 
