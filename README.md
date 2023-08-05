@@ -11,6 +11,7 @@ FlappyBird и змейка в одном проекте, мини игра в ж
 
 # Images
 <p align="left">
+<img src="landing/FlappySnake_4.png" width = 900/>
 <img src="landing/FlappySnake_1.png" width = 900/>
 <img src="landing/FlappySnake_2.png" width = 900/>
 <img src="landing/FlappySnake_3.png" width = 900/>
